@@ -8,33 +8,47 @@ import './DessertForm.css';
 const StyledDiv = styled.div`
     background-color: ${props => props.theme.colors.red}
 `;
-// const styled
-const AddDessertForm = ({ addToDessertList, name, amount, setName, setAmount }) => {
-    // const [name, setName] = useState();
-    // const [amount, setAmount] = useState();
-    console.log(name, amount);
-    return (
-        <Form className="AddDessertForm">
-            DessertForm
-            <Row className='row'>
-                <Col lg={3}>
-                    <FormGroup>
-                        <Label for="Name">Name</Label>
-                        <Input type={"text"} onChange={(e) => setName(e?.target?.value)} value={name || ""} />
-                    </FormGroup>
-                </Col>
-                <Col lg={3}>
-                    <FormGroup>
-                        <Label for="Amount">Amount</Label>
-                        <Input type={"number"} onChange={(e) => setAmount(e?.target?.value)} value={amount || ""} />
-                    </FormGroup>
-                </Col>
-                <Col lg={3}>
-                    <Button onClick={() => { addToDessertList() }}>+</Button>
-                </Col>
 
-            </Row>
-        </Form>
+const StyledRow = styled(Row)`
+ 
+`;
+
+const StyledHeader = styled.h6`
+    font-weight: 500;
+`;
+
+const StyledButtonCol = styled(Col)`
+    align-self  : flex-end;
+    margin-bottom: 1rem;
+`;
+
+
+const AddDessertForm = ({ addToDessertList, name, amount, setName, setAmount }) => {
+    return (
+        <>
+            <StyledHeader>Add Your Favorite Dessert to the Menu !!!</StyledHeader>
+            <Form className="AddDessertForm">
+                <StyledRow>
+                    <Col lg={3}>
+                        <FormGroup>
+                            <Label for="Name">Name</Label>
+                            <Input type={"text"} onChange={(e) => setName(e?.target?.value)} value={name || ""} />
+                        </FormGroup>
+                    </Col>
+                    <Col lg={3}>
+                        <FormGroup>
+                            <Label for="Amount">Amount</Label>
+                            <Input type={"number"} onChange={(e) => setAmount(e?.target?.value)} value={amount || ""} />
+                        </FormGroup>
+                    </Col>
+                    <StyledButtonCol lg={3}>
+                        <Button color="primary" onClick={() => { addToDessertList() }}>+</Button>
+                    </StyledButtonCol>
+
+                </StyledRow>
+            </Form>
+        </>
+
     );
 }
 

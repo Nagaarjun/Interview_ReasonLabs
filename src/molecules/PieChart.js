@@ -1,10 +1,14 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import styled from 'styled-components';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-
+const StyledHeader = styled.h5`
+    text-align:center;
+    font-weight: 600;
+`;
 
 const PieChart = ({ dessertsList }) => {
     // console.log(dessertsList);
@@ -34,7 +38,13 @@ const PieChart = ({ dessertsList }) => {
             },
         ],
     };
-    return (<Pie data={data} />);
+    return (
+        <>
+            <StyledHeader>Desserts Pie Chart</StyledHeader>
+            <Pie data={data} />
+        </>
+
+    );
 }
 
 export default PieChart;

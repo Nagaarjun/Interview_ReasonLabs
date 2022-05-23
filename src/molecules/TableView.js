@@ -1,29 +1,56 @@
 import { Col, Row } from "reactstrap";
+import styled from "styled-components";
 import Button from "../atoms/button";
 import "./TableView.css";
 
+const StyledWrapper = styled.div`
+    margin-bottom: 1rem;
+`;
+
+const StyledRow = styled(Row)`
+    margin:0;  
+    margin-bottom: 1rem  
+`;
+
+const StyledButton = styled(Button)`
+    border-radius:50%;
+    padding: .275rem .7rem;
+`;
+
+const StyledHeader = styled.h5`
+    font-weight: 700;
+`;
+
 const TableView = ({ dessertsList, updateDessertsList }) => {
     return (
-        <Row>{
-            Array.isArray(dessertsList) && dessertsList.length > 0 && dessertsList.map((item, index) => {
+        <>
+            <StyledHeader>Your Menu:</StyledHeader>
+            <StyledRow>
+                <Col lg={3} sm={3} md={3} xs={3}><b>S.No</b></Col>
+                <Col lg={3} sm={3} md={3} xs={3}><b>Name</b></Col>
+                <Col lg={3} sm={3} md={3} xs={3}><b>Amount</b></Col>
+                <Col lg={3} sm={3} md={3} xs={3}><b>Actions</b></Col>
+            </StyledRow>
+            {Array.isArray(dessertsList) && dessertsList.length > 0 && dessertsList.map((item, index) => {
                 return (
-                    <>
-                        <Col lg={3}>
-                            <div>{item.id + 1}</div>
+                    <StyledRow>
+                        <Col lg={3} sm={3} md={3} xs={3}>
+                            {item.id + 1}
                         </Col>
-                        <Col lg={3}>
-                            <div>{item.name}</div>
+                        <Col lg={3} sm={3} md={3} xs={3}>
+                            {item.name}
                         </Col>
-                        <Col lg={3}>
-                            <div>{item.amount}</div>
+                        <Col lg={3} sm={3} md={3} xs={3}>
+                            {item.amount}
                         </Col>
-                        <Col lg={3}>
-                            <Button onClick={() => { updateDessertsList(index) }}>Remove</Button>
+                        <Col lg={3} sm={3} md={3} xs={3}>
+                            <StyledButton color="danger" onClick={() => { updateDessertsList(index) }}>-</StyledButton>
                         </Col>
-                    </>
+                    </StyledRow>
                 )
             })
-        }</Row>
+            }
+        </>
     );
 }
 
