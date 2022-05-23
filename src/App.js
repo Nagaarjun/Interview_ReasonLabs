@@ -5,6 +5,8 @@ import AddDessertForm from './molecules/DessertForm';
 import { useCallback, useEffect, useState } from 'react';
 import TableView from './molecules/TableView';
 import { Col, Row } from 'reactstrap';
+import { Pie } from 'react-chartjs-2';
+import PieChart from './molecules/PieChart';
 
 
 const App = () => {
@@ -44,9 +46,8 @@ const App = () => {
         <TableView dessertsList={dessertsList} updateDessertsList={updateDessertsList} />
       </Col>
       <Col lg={4}>
-        <div>PIE chart Here</div>
+        <PieChart dessertsList={dessertsList} />
       </Col>
-      <div>{JSON.stringify(dessertsList)}</div>
     </Row>
   );
 }
