@@ -46,7 +46,6 @@ const App = () => {
   }, []);
 
   const addToDessertsList = () => {
-    console.log(name, amount);
     if (name && amount)
       setDessertslist([...dessertsList, { id: dessertsList.length, name, amount }]);
     setAmount(undefined);
