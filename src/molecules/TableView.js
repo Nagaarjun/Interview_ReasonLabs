@@ -14,7 +14,7 @@ const StyledRow = styled(Row)`
 
 const StyledButton = styled(Button)`
     border-radius:50%;
-    padding: .275rem .7rem;
+    padding: .15rem .65rem;
 `;
 
 const StyledHeader = styled.h5`
